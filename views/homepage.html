@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap">
+    <link rel="stylesheet" href="../public/styles/main.css">
+    <title>Home Page - Top Hype Store</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 100vh;
+            background-color: #000000;
+            overflow: hidden;
+            font-family: 'Oswald', sans-serif;
+            position: relative;
+        }
+        .navbar-placeholder {
+            height: 80px; /* Adjust to match the height of the navbar */
+        }
+        .homepage-container {
+            position: relative;
+            width: 100%;
+            height: calc(100% - 80px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .welcome-message {
+            color: #ffffff;
+            font-size: 5rem;
+            font-family: 'Oswald';
+            font-weight: 700;
+            z-index: 2;
+            text-align: center;
+        }
+        .background-photo {
+            height: 100vh;
+            width: auto;
+            position: fixed;
+            right: 0;
+            top: 0;
+            object-fit: cover;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-placeholder"></div>
+    <div class="homepage-container">
+        <div class="welcome-message">
+            BIENVENIDO A TOP WUUU STORE
+        </div>
+        <img src="/images/background_photo.png" alt="Background Photo" class="background-photo">
+    </div>
+</body>
+</html>
