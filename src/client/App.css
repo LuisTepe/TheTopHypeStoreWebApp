@@ -84,8 +84,9 @@ body {
   border-style: none;
   padding: 20px;
   font-size: 15px;
+  font-weight: 700;
   font-family: 'Oswald Bold 700', sans-serif;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   outline: none;
   border-radius: 25px;
   transition: all 0.5s ease-in-out;
@@ -96,9 +97,11 @@ body {
 
 .input-search::placeholder {
   color: rgba(255, 255, 255, 0.5);
-  font-size: 14px;
-  letter-spacing: 2px;
-  font-weight: 100;
+  font-family: 'Oswald Bold 700', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Oswald Bold 700', sans-serif;
+  letter-spacing: 1px;
 }
 
 .btn-search {
@@ -155,6 +158,24 @@ body {
   color: #ffffff;
 }
 
+.shop-now-button {
+  background-color: transparent;
+  border: 2px solid #36fff1;
+  color: #36fff1;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  font-family: 'Oswald';
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 20;
+}
+
+.shop-now-button:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
 .container {
   margin-top: 80px;
   padding: 20px;
@@ -171,4 +192,55 @@ h1 {
 p {
   color: #666;
   font-family: 'Oswald', sans-serif;
+}
+
+/* CSS VISTA SHOP */
+
+.shop-container {
+  padding: 20px;
+  background-color: #f0f0f0;
+  min-height: calc(100vh - 80px);
+}
+
+.shop-title {
+  color: #333;
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+  height: 200px;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+.product-name {
+  font-size: 1.5rem;
+  color: #333;
+  font-family: 'Oswald', sans-serif;
+}
+
+.product-price {
+  font-size: 1.25rem;
+  color: #36fff1;
+  font-weight: bold;
 }
