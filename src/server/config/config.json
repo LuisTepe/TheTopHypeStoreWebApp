@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
+    "username": "atepezano",
+    "password": "atepezano1234",
+    "database": "hype_store",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
