@@ -54,10 +54,9 @@ module.exports = {
       "http": require.resolve("stream-http"),
       "https": require.resolve("https-browserify"),
       "fs": false,
-      "path": require.resolve("path-browserify"),
       "os": require.resolve("os-browserify/browser"),
       "url": require.resolve("url/"),
-      "net": require.resolve("net/"),
+      "net": false,
       "async_hooks": false
     },
     extensions: ['.js', '.jsx'],
@@ -72,6 +71,8 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'public'),
     },
+    compress: true,
+    port: 8080,
     historyApiFallback: true,
     proxy: [
         {
@@ -79,5 +80,5 @@ module.exports = {
           target: 'http://localhost:3000',
         },
       ],
-    },
+  },
 };
