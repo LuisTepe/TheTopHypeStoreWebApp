@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './navbar';
 import HomePage from './homepage';
 import Shop from './shop';
+import ChatModal from './chatModal'; // Mantén el import del ChatModal
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/shop" element={<Shop />} />
         </Routes>
+        <ChatModal /> {/* Mostrar el ChatModal siempre sin necesidad de un botón */}
       </div>
     </Router>
   );

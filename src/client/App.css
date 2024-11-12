@@ -217,6 +217,18 @@ p {
 
 /* CSS VISTA SHOP */
 
+body, html {
+  overflow-x: hidden;  /* Evitar desplazamiento horizontal */
+}
+
+.shop-container {
+  padding: 20px;
+  background-color: #000000; /* Fondo negro */
+  min-height: calc(100vh - 80px);
+  width: 100vw;  /* Ajustar ancho para evitar desplazamiento */
+  overflow-x: hidden;
+}
+
 .shop-container {
   padding: 20px;
   background-color: #000; /* Fondo negro */
@@ -271,3 +283,45 @@ p {
   color: #36fff1; /* Azul claro */
   font-weight: bold;
 }
+
+/* App.css - Estilo para el botón de chat */
+.custom-chat-button {
+  background-color: #000;
+  color: #36fff1;
+  border: 2px solid #36fff1;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.custom-chat-button:hover {
+  background-color: #36fff1;
+  color: #000;
+}
+
+/* Personalización del widget de Dialogflow */
+df-messenger {
+  --df-messenger-button-titlebar-color: #36fff1; /* Cambia el color de la barra del título a negro */
+  --df-messenger-font-color: #ffffff; /* Cambia el color del texto */
+  --df-messenger-button-icon-color: #36fff1; /* Cambia el color del ícono del botón */
+  --df-messenger-user-message: #36fff1; /* Color del mensaje del usuario */
+  --df-messenger-bot-message: #000; /* Cambia el color del mensaje del bot a negro */
+  --df-messenger-bot-message-animation: #000; /* Cambia el color de la animación del mensaje del bot a negro */
+}
+
+/* Ajustes al botón del chat */
+df-messenger .df-messenger-launcher {
+  background-color: #000; /* Cambia el color de fondo del botón del chat */
+  border-radius: 50%; /* Cambia la forma del botón, por ejemplo a un círculo */
+}
+
+
+/* Ocultar el botón predeterminado de Dialogflow 
+df-messenger .df-messenger-launcher {
+  display: none !important;
+}*/
