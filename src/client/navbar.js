@@ -12,8 +12,9 @@ const Navbar = () => {
         <ul className="nav-links">
           <li><Link to="/">HOME</Link></li>
           <li><Link to="/shop">SHOP</Link></li>
-          <li><a href="/about">ABOUT</a></li>
-          <li><a href="/contact">CONTACT</a></li>
+          <li><Link to="/about">ABOUT</Link></li>
+          <li><Link to="/contact">CONTACT</Link></li>
+          <li><Link to="/admin">ADMIN</Link></li> {/* Agregamos el enlace de Admin */}
         </ul>
         <div className="search-cart-container">
           <div className="search-box">
