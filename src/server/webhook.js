@@ -49,9 +49,7 @@ app.post('/webhook', async (req, res) => {
       } else {
         responseText = `No encontré el producto llamado ${nombreProducto}.`;
       }
-    }
-
-    if (intentName === 'ConsultarStock') {
+    } else if (intentName === 'ConsultarStock') {
       const nombreProducto = parameters.producto;
 
       // Consulta a la base de datos para obtener el stock del producto
@@ -68,10 +66,21 @@ app.post('/webhook', async (req, res) => {
       } else {
         responseText = `No encontré el producto llamado ${nombreProducto}.`;
       }
+    } else if (intentName === 'FAQ') {
+      if (parameters.ubicacion) {
+        responseText = 'Nos ubicamos en Hermosillo, Sonora';
+      } else if (parameters.tiendas) {
+        responseText = 'Aún no contamos con sucursales físicas';
+      } else if (parameters.contacto) {
+        responseText = 'Puedes contactarnos vía mensaje directo de Instagram donde podrá atenderte un integrante de nuestro equipo';
+      } else if (parameters.devoluciones) {
+        responseText = 'Las devoluciones son válidas 20 días a partir de la compra, ya que contamos con garantía directa con el fabricante';
+      } else if (parameters.envios) {
+        responseText = 'Sí, contamos con envíos nacionales e internacionales';
+      } else {
+        responseText = 'Lo siento, no he recibido una pregunta válida.';
+      }
     }
-
-    // Puedes agregar más condiciones según otros intents definidos
-
   } catch (error) {
     console.error('Error al procesar la solicitud:', error);
     responseText = 'Hubo un error al procesar tu solicitud, por favor intenta más tarde.';

@@ -21,7 +21,7 @@ const Shop = () => {
   }, []);
 
   return (
-    <div className="shop-container" style={{ width: '100vw', padding: '70px', boxSizing: 'border-box' }}>
+    <div className="shop-container" style={{ width: '100vw', paddingTop: '20px', padding: '70px', boxSizing: 'border-box' }}>
       <h2 className="shop-title" style={{ color: '#ffffff', fontSize: '3rem', marginBottom: '40px' }}>CATÁLOGO DE PRODUCTOS</h2>
       <div className="products-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
         {productos.map(producto => (

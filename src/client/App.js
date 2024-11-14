@@ -7,18 +7,22 @@ import Shop from './shop';
 import ChatModal from './chatModal';
 import About from './about';
 import Contact from './contact';
+import Product from './product'; // Importamos el archivo de la vista del producto
 
 const App = () => {
   return (
     <Router>
       <div className="container" style={{ margin: 0, padding: 0, height: '100vh', backgroundColor: '#000' }}>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <Navbar className="navbar" />
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/producto/:id_producto" element={<Product />} /> {}
+          </Routes>
+        </div>
         <ChatModal />
       </div>
     </Router>
