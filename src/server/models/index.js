@@ -16,7 +16,7 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-// Leer todos los archivos de modelos en la carpeta
+// Leer todos los archivos de modelos en la carpeta y cargar los modelos
 fs
   .readdirSync(__dirname)
   .filter(file => {
@@ -32,6 +32,7 @@ fs
     db[model.name] = model;
   });
 
+// Definir las asociaciones después de cargar todos los modelos
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
@@ -40,16 +41,5 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-
-// Función para obtener productos
-db.obtenerProductos = async () => {
-  try {
-    const productos = await db.productos.findAll();
-    return productos;
-  } catch (error) {
-    console.error('Error al obtener los productos:', error);
-    throw error;
-  }
-};
 
 module.exports = db;
