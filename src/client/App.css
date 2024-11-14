@@ -13,9 +13,6 @@ body {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #130f40;
   font-family: 'Lato', sans-serif;
 }
@@ -302,6 +299,203 @@ body, html {
 .custom-chat-button:hover {
   background-color: #36fff1;
   color: #000;
+}
+
+.dashboard-layout {
+  display: flex;
+}
+
+.admin-dashboard-container {
+  margin-left: 200px; /* Espacio para la sidebar */
+  width: calc(100% - 200px); /* Ajustar ancho para no cubrir la barra lateral */
+  padding: 20px;
+  background-color: #000;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.admin-dashboard-header {
+  background-color: #2c2f33; /* Same as navbar background */
+  padding: 16px;
+  border-bottom: 1px solid #374151;
+}
+
+.admin-dashboard-header h1 {
+  font-size: 1.25rem;
+  color: #36fff1; /* Same as navbar text color */
+  font-weight: bold;
+}
+
+.admin-dashboard-header-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+  color: #36fff1;
+}
+
+.admin-dashboard-header-info p {
+  margin: 0;
+  color: #36fff1;
+}
+
+.admin-dashboard-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #36fff1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #36fff1;
+  font-weight: bold;
+}
+
+/* Tarjetas del dashboard */
+.admin-dashboard-dashboard {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 24px;
+}
+
+.admin-dashboard-card {
+  background-color: #1f2937;
+  padding: 16px;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-dashboard-card {
+  background-color: #2c2f33; /* Mismo color que la barra de navegación */
+  padding: 16px;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  color: #9ca3af;
+}
+.admin-dashboard-card h3 {
+  font-size: 0.875rem;
+  color: #36fff1; /* Mismo color que las letras del navbar */
+  margin: 0;
+}
+
+.admin-dashboard-card .value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.admin-dashboard-card .percentage {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.admin-dashboard-card .icon {
+  color: #60a5fa;
+}
+
+.admin-dashboard-table-card {
+  background-color: #2c2f33; /* Same as navbar background */
+  padding: 16px;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.admin-dashboard-table th {
+  color: #36fff1; /* Same as navbar text color */
+  border-bottom: 1px solid #374151;
+}
+
+.admin-dashboard-table td {
+  color: #9ca3af;
+  border-bottom: 1px solid #374151;
+}
+
+.admin-dashboard-table-card h3 {
+  font-size: 1rem;
+  color: #36fff1;
+  margin-bottom: 16px;
+}
+
+.admin-dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #9ca3af;
+}
+
+.admin-dashboard-table th {
+  color: #36fff1;
+  border-bottom: 1px solid #374151;
+}
+
+.admin-dashboard-table td {
+  border-bottom: 1px solid #374151;
+}
+
+.admin-dashboard-status-button {
+  padding: 4px 8px;
+  border: 1px solid #60a5fa;
+  color: #60a5fa;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+.admin-dashboard-status-button:hover {
+  background-color: #374151;
+  color: #ffffff;
+}
+
+.admin-dashboard-table-card {
+  background-color: #2c2f33; /* Fondo oscuro */
+  padding: 16px;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  margin-top: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.admin-dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.admin-dashboard-table th,
+.admin-dashboard-table td {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.admin-dashboard-table th {
+  text-align: left;
+  background-color: #55608f;
+}
+
+.admin-dashboard-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.admin-dashboard-table tbody td {
+  position: relative;
+}
+
+.admin-dashboard-table tbody td:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
 }
 
 /* Personalización del widget de Dialogflow */
