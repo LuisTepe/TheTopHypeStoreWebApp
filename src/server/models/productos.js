@@ -1,45 +1,46 @@
-// detalle_ventas.js
+const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  const DetalleVentas = sequelize.define('detalle_ventas', {
-    id_detalle_venta: {
+  return sequelize.define('Producto', { // Cambié 'productos' a 'Producto'
+    id_producto: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    id_venta: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'ventas',
-        key: 'id_venta'
-      }
-    },
-    id_producto: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'productos',
-        key: 'id_producto'
-      }
-    },
-    cantidad: {
-      type: DataTypes.INTEGER,
+    nombre_producto: {
+      type: DataTypes.STRING(100),
       allowNull: false
     },
-    subtotal: {
+    descripcion: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    precio: {
       type: DataTypes.DECIMAL(10,2),
       allowNull: false
+    },
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    fecha_creacion: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('current_timestamp')
     }
   }, {
-    tableName: 'detalle_ventas',
+    sequelize,
+    tableName: 'productos',
     timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "id_producto" },
+        ]
+      },
+    ]
   });
-
-  DetalleVentas.associate = function(models) {
-    DetalleVentas.belongsTo(models.ventas, { foreignKey: 'id_venta', as: 'venta' });
-    DetalleVentas.belongsTo(models.productos, { foreignKey: 'id_producto', as: 'producto' });
-  };
-
-  return DetalleVentas;
 };

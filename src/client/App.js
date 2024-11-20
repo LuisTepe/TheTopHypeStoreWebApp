@@ -8,7 +8,6 @@ import ChatModal from './chatModal';
 import About from './about';
 import Contact from './contact';
 import Product from './product'; // Importamos el archivo de la vista del producto
-import AdminDashboard from './AdminDashboard'; // Importamos el AdminDashboard
 
 const App = () => {
   return (
@@ -21,8 +20,7 @@ const App = () => {
             <Route path="/shop" element={<Shop />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/producto/:id_producto" element={<Product />} />
-            <Route path="/admin" element={<AdminDashboard />} /> {/* Agregamos la ruta del AdminDashboard */}
+            <Route path="/producto/:id_producto" element={<Product />} /> {}
           </Routes>
         </div>
         <ChatModal />
