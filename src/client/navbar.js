@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import CartModal from './cartModal'; // Importamos el modal del carrito
 
 const Navbar = () => {
-  console.log("Renderizando Navbar...");
+  const [isCartModalOpen, setCartModalOpen] = useState(false);
+
+  const toggleCartModal = () => {
+    setCartModalOpen(!isCartModalOpen);
+  };
+
   return (
     <div className="navbar-container">
       <nav className="navbar">
@@ -12,8 +18,8 @@ const Navbar = () => {
         <ul className="nav-links">
           <li><Link to="/">HOME</Link></li>
           <li><Link to="/shop">SHOP</Link></li>
-          <li><a href="/about">ABOUT</a></li>
-          <li><a href="/contact">CONTACT</a></li>
+          <li><Link to="/about">ABOUT</Link></li>
+          <li><Link to="/contact">CONTACT</Link></li>
         </ul>
         <div className="search-cart-container">
           <div className="search-box">
@@ -22,10 +28,11 @@ const Navbar = () => {
             </button>
             <input type="text" className="input-search" placeholder="Search..." />
           </div>
-          <span className="material-icons shopping-cart">shopping_cart</span>
+          <span className="material-icons shopping-cart" onClick={toggleCartModal}>shopping_cart</span>
           <span className="material-symbols-outlined account-icon">account_circle</span>
         </div>
       </nav>
+      <CartModal isOpen={isCartModalOpen} onClose={toggleCartModal} />
     </div>
   );
 };
