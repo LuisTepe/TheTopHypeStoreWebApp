@@ -12,14 +12,18 @@ function initModels(sequelize) {
   var usuarios = _usuarios(sequelize, DataTypes);
   var ventas = _ventas(sequelize, DataTypes);
 
-  detalle_ventas.belongsTo(productos, { as: "id_producto_producto", foreignKey: "id_producto"});
-  productos.hasMany(detalle_ventas, { as: "detalle_venta", foreignKey: "id_producto"});
-  usuarios.belongsTo(roles, { as: "roletype", foreignKey: "roletype_id"});
-  roles.hasMany(usuarios, { as: "usuarios", foreignKey: "roletype_id"});
-  ventas.belongsTo(usuarios, { as: "id_usuario_usuario", foreignKey: "id_usuario"});
-  usuarios.hasMany(ventas, { as: "venta", foreignKey: "id_usuario"});
-  detalle_ventas.belongsTo(ventas, { as: "id_venta_venta", foreignKey: "id_venta"});
-  ventas.hasMany(detalle_ventas, { as: "detalle_venta", foreignKey: "id_venta"});
+  // Definir relaciones con nombres de alias claros
+  detalle_ventas.belongsTo(productos, { as: "producto", foreignKey: "id_producto" });
+  productos.hasMany(detalle_ventas, { as: "detalle_ventas", foreignKey: "id_producto" });
+
+  usuarios.belongsTo(roles, { as: "role", foreignKey: "roletype_id" });
+  roles.hasMany(usuarios, { as: "usuarios", foreignKey: "roletype_id" });
+
+  ventas.belongsTo(usuarios, { as: "usuario", foreignKey: "id_usuario" });
+  usuarios.hasMany(ventas, { as: "ventas", foreignKey: "id_usuario" });
+
+  detalle_ventas.belongsTo(ventas, { as: "venta", foreignKey: "id_venta" });
+  ventas.hasMany(detalle_ventas, { as: "detalle_ventas", foreignKey: "id_venta" });
 
   return {
     detalle_ventas,

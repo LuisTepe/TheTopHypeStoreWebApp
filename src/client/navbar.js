@@ -29,7 +29,7 @@ const Navbar = () => {
             <input type="text" className="input-search" placeholder="Search..." />
           </div>
           <span className="material-icons shopping-cart" onClick={toggleCartModal}>shopping_cart</span>
-          <span className="material-symbols-outlined account-icon">account_circle</span>
+          <span className="material-symbols-outlined account-icon"><Link to="/register">account_circle</Link></span>
         </div>
       </nav>
       <CartModal isOpen={isCartModalOpen} onClose={toggleCartModal} />

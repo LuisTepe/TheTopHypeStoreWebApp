@@ -9,6 +9,8 @@ import About from './about';// Importamos el archivo de la vista about
 import Contact from './contact';// Importamos el archivo de la vista contacto
 import Product from './product'; // Importamos el archivo de la vista del producto
 import CartModal from './cartModal'; // Importamos el archivo del modal del carrito
+import Login from './Login'; // Importamos el archivo de la vista de login
+import Register from './Register'; // Importamos el archivo de la vista de registro
 
 const App = () => {
   const [isCartModalOpen, setCartModalOpen] = React.useState(false);
@@ -28,6 +30,8 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/producto/:id_producto" element={<Product />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </div>
         <ChatModal />

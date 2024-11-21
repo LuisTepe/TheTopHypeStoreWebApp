@@ -1,17 +1,21 @@
 // src/server/app.js
 const express = require('express');
+require('dotenv').config();
 const bodyParser = require('body-parser');
+const userRoutes = require('./routes/userRoutes');
 const db = require('./models'); // Importamos todos los modelos desde index.js
 
 const app = express();
 
 // Configuración de body-parser
-app.use(bodyParser.json());
+app.use(express.json()); // Cambiado `bodyParser.json()` a `express.json()`
 
 // Conexión a la base de datos
 db.sequelize.authenticate()
   .then(() => console.log('Conexión a la base de datos establecida'))
   .catch((error) => console.error('Error de conexión:', error));
+
+app.use('/api/users', userRoutes);
 
 // Ruta para obtener todos los productos
 app.get('/api/productos', async (req, res) => {
