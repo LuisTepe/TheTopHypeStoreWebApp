@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './navbar'; // Importamos el archivo de la navbar
-import HomePage from './homepage'; // Importamos el archivo de la vista de homepage
-import Shop from './shop'; // Importamos el archivo de la vista de shop
-import ChatModal from './chatModal';// Importamos la API de DialogFlow
-import About from './about';// Importamos el archivo de la vista about
-import Contact from './contact';// Importamos el archivo de la vista contacto
-import Product from './product'; // Importamos el archivo de la vista del producto
-import CartModal from './cartModal'; // Importamos el archivo del modal del carrito
+import Navbar from './navbar';
+import HomePage from './homepage';
+import Shop from './shop';
+import ChatModal from './chatModal';
+import About from './about';
+import Contact from './contact';
+import Product from './product';
+import CartModal from './cartModal';
+import SearchResults from './SearchResults'; // Importamos la vista de resultados de búsqueda
 
 const App = () => {
   const [isCartModalOpen, setCartModalOpen] = React.useState(false);
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/producto/:id_producto" element={<Product />} />
+            <Route path="/search" element={<SearchResults />} />
           </Routes>
         </div>
         <ChatModal />

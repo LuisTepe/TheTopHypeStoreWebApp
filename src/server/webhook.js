@@ -33,7 +33,8 @@ app.post('/webhook', async (req, res) => {
   const intentName = req.body.queryResult.intent.displayName;
   const parameters = req.body.queryResult.parameters;
 
-  let responseText = 'Lo siento, no tengo esa información en este momento.';
+  let responseText = 'Lo siento, no tengo esa información en este momento. Escribe "Ayuda" para ver las opciones';
+  let customPayload = null;
 
   try {
     if (intentName === 'ConsultarPrecios') {
@@ -47,7 +48,7 @@ app.post('/webhook', async (req, res) => {
       if (producto) {
         responseText = `El precio de ${nombreProducto} es $${producto.precio}.`;
       } else {
-        responseText = `No encontré el producto llamado ${nombreProducto}.`;
+        responseText = `No encontré el producto llamado ${nombreProducto}. Escribe "Ayuda" para ver las opciones`;
       }
     } else if (intentName === 'ConsultarStock') {
       const nombreProducto = parameters.producto;
@@ -64,7 +65,7 @@ app.post('/webhook', async (req, res) => {
           responseText = `Lo siento, actualmente no tenemos ${nombreProducto} en stock.`;
         }
       } else {
-        responseText = `No encontré el producto llamado ${nombreProducto}.`;
+        responseText = `No encontré el producto llamado ${nombreProducto}. Escribe "Ayuda" para ver las opciones`;
       }
     } else if (intentName === 'FAQ') {
       if (parameters.ubicacion) {
@@ -78,8 +79,27 @@ app.post('/webhook', async (req, res) => {
       } else if (parameters.envios) {
         responseText = 'Sí, contamos con envíos nacionales e internacionales';
       } else {
-        responseText = 'Lo siento, no he recibido una pregunta válida.';
+        responseText = 'Lo siento, no he recibido una pregunta válida. Escribe "Ayuda" para ver las opciones';
       }
+    } else if (intentName === 'Default Welcome Intent') {
+      // Respuesta de bienvenida personalizada
+      responseText = '¡Hola! Bienvenido a Top Hype Store. ¿En qué podemos ayudarte?';
+      customPayload = {
+        "richContent": [
+          [
+            {
+              "options": [
+                { "text": "¿Realizan envíos a todo el país?" },
+                { "text": "¿Cuál es su política de devoluciones?" },
+                { "text": "¿Cómo puedo contactarlos?" },
+                { "text": "¿Tienen tiendas físicas?" },
+                { "text": "¿Dónde están ubicados?" }
+              ],
+              "type": "chips"
+            }
+          ]
+        ]
+      };
     }
   } catch (error) {
     console.error('Error al procesar la solicitud:', error);
@@ -87,9 +107,16 @@ app.post('/webhook', async (req, res) => {
   }
 
   // Respuesta al webhook de Dialogflow
-  res.json({
-    fulfillmentText: responseText
-  });
+  const response = customPayload
+    ? {
+        fulfillmentMessages: [
+          { text: { text: [responseText] } },
+          { payload: customPayload }
+        ]
+      }
+    : { fulfillmentText: responseText };
+
+  res.json(response);
 });
 
 // Inicializar el servidor
