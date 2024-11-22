@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./models'); // Importamos todos los modelos desde index.js
+const dashboardRoutes = require('./routes/dashboardRoutes');
 
 const { Sequelize, DataTypes, Op } = require('sequelize'); // Asegúrate de importar Op
 
@@ -262,6 +263,11 @@ const authenticateJWT = (req, res, next) => {
     res.status(401).json({ message: 'Autorización requerida' });
   }
 };
+
+
+// Configurar rutas
+app.use('/api/dashboard', dashboardRoutes);
+
 
 // Iniciar el servidor
 app.listen(3000, () => {

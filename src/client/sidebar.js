@@ -9,12 +9,10 @@ const Sidebar = () => {
   const handleMouseLeave = () => setHoverIndex(null);
 
   const links = [
-    { to: "/admin#dashboard", label: "Dashboard" },
+    { to: "/dashboard", label: "Dashboard" },
     { to: "/Usuarios/usersTable", label: "Gestionar Usuarios" },
     { to: "/productsTable", label: "Gestionar Productos" },
     { to: "/tallasTable", label: "Gestionar Tallas" },
-    { to: "/admin#stats", label: "Ver Estadísticas de Ventas" },
-    { to: "/admin#settings", label: "Configuración" },
   ];
 
   return (
