@@ -9,6 +9,10 @@ const TallasTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
+  // Agregar estados para el modal de confirmación de eliminación
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [tallaToDelete, setTallaToDelete] = useState(null);
+
   // Obtener tallas
   useEffect(() => {
     fetch('/api/tallas')
@@ -21,7 +25,6 @@ const TallasTable = () => {
       .then((data) => setTallas(data))
       .catch((error) => console.error('Error al obtener las tallas:', error));
   }, []);
-  
 
   // Manejar creación de talla
   const handleCreateTalla = () => {
@@ -44,6 +47,7 @@ const TallasTable = () => {
     fetch(`/api/tallas/${id}`, { method: 'DELETE' })
       .then(() => {
         setTallas(tallas.filter((talla) => talla.id_talla !== id));
+        setIsDeleteModalOpen(false); // Cerrar el modal después de eliminar
       })
       .catch((error) => console.error('Error al eliminar la talla:', error));
   };
@@ -73,6 +77,12 @@ const TallasTable = () => {
     setIsModalOpen(true);
   };
 
+  // Abrir el modal para confirmar eliminación
+  const openDeleteModal = (talla) => {
+    setTallaToDelete(talla);
+    setIsDeleteModalOpen(true);
+  };
+
   return (
     <div className="admin-layout">
       <Sidebar />
@@ -88,7 +98,7 @@ const TallasTable = () => {
             <tr>
               <th>ID</th>
               <th>Talla</th>
-              <th style={{ width: '150px', textAlign: 'center' }} >Acciones</th>
+              <th style={{ width: '150px', textAlign: 'center' }}>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -105,7 +115,7 @@ const TallasTable = () => {
                   </span>
                   <span
                     className="material-symbols-outlined generic-icon"
-                    onClick={() => handleDeleteTalla(talla.id_talla)}
+                    onClick={() => openDeleteModal(talla)}
                   >
                     delete
                   </span>
@@ -164,6 +174,34 @@ const TallasTable = () => {
             </button>
           </div>
         )}
+      </Modal>
+
+      {/* Modal para confirmar eliminación de talla */}
+      <Modal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        title="Confirmar Eliminación"
+      >
+        <div>
+          <p>
+            ¿Está seguro de que desea eliminar la talla "{tallaToDelete?.talla}"?
+          </p>
+          <button
+            className="generic-button"
+            onClick={() => {
+              handleDeleteTalla(tallaToDelete.id_talla);
+              setIsDeleteModalOpen(false);
+            }}
+          >
+            Sí, eliminar
+          </button>
+          <button
+            className="generic-button"
+            onClick={() => setIsDeleteModalOpen(false)}
+          >
+            Cancelar
+          </button>
+        </div>
       </Modal>
     </div>
   );
