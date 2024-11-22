@@ -1,14 +1,15 @@
 // cartModal.js
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const CartModal = ({ isOpen, onClose }) => {
   const [cartItems, setCartItems] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Obtener productos del carrito del local storage o cualquier otro almacenamiento
     const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     setCartItems(storedItems);
   }, [isOpen]);
@@ -27,6 +28,11 @@ const CartModal = ({ isOpen, onClose }) => {
     const updatedItems = cartItems.filter((_, i) => i !== index);
     setCartItems(updatedItems);
     localStorage.setItem('cartItems', JSON.stringify(updatedItems));
+  };
+
+  const handleCheckout = () => {
+    onClose();
+    navigate('/checkout');
   };
 
   if (!isOpen) return null;
@@ -111,6 +117,7 @@ const CartModal = ({ isOpen, onClose }) => {
           </ul>
         )}
         <button
+          onClick={handleCheckout}
           style={{
             marginTop: '20px',
             backgroundColor: '#000',
