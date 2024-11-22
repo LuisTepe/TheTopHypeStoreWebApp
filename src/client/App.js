@@ -12,6 +12,7 @@ import CartModal from './cartModal';
 import SearchResults from './SearchResults';
 import Register from './Register';
 import Login from './Login';
+import Checkout from './checkout';
 
 const App = () => {
   const [isCartModalOpen, setCartModalOpen] = useState(false);
@@ -56,6 +57,7 @@ const App = () => {
             <Route path="/producto/:id_producto" element={<Product />} />
             <Route path="/search" element={<SearchResults />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/checkout" element={<Checkout isAuthenticated={isAuthenticated} />} />
             <Route
               path="/login"
               element={<Login setIsAuthenticated={setIsAuthenticated} />}
