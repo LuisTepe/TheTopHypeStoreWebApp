@@ -9,9 +9,12 @@ import About from './about';
 import Contact from './contact';
 import Product from './product';
 import CartModal from './cartModal';
-import SearchResults from './SearchResults';
+import SearchResults from './SearchResults'; // Importamos la vista de resultados de búsqueda
+import ProductsTable from './productsTable';
+import TallasTable from './tallasTable';
 import Register from './Register';
 import Login from './Login';
+import UsersTable from './Usuarios/usersTable';
 import Checkout from './checkout';
 
 const App = () => {
@@ -62,6 +65,9 @@ const App = () => {
               path="/login"
               element={<Login setIsAuthenticated={setIsAuthenticated} />}
             />
+            <Route path="/productsTable" element={<ProductsTable />} />
+            <Route path="/tallasTable" element={<TallasTable />} />
+            <Route path="/Usuarios/usersTable" element={<UsersTable />} />
           </Routes>
         </div>
         <ChatModal />

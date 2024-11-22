@@ -44,6 +44,7 @@ const Navbar = ({
           <li><Link to="/shop">SHOP</Link></li>
           <li><Link to="/about">ABOUT</Link></li>
           <li><Link to="/contact">CONTACT</Link></li>
+          <li><Link to="/productsTable">ADMIN</Link></li>
         </ul>
         <div className="search-cart-container">
           <form onSubmit={handleSearch}>

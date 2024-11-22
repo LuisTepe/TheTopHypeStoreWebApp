@@ -194,7 +194,66 @@ body {
   color: #ffffff;
 }
 
+.generic-icon {
+  color: #36fff1;
+  cursor: pointer;
+  font-size: 30px;
+  transition: color 0.3s;
+  margin-left: 10px; /* Añade espacio entre el icono de carrito de compras y el de cuenta */
+}
 
+.generic-icon:hover {
+  color: #ffffff;
+}
+
+.generic-button{
+  color: #000000;
+  font-size: 15px;
+  font-family: 'Oswald', sans-serif;
+  background-color: #36fff1;
+  border-radius: 10px; /* Cambia 10px al valor que prefieras */
+  border: none; /* Opcional, para eliminar cualquier borde predeterminado */
+  padding: 5px 15px; /* Opcional, para ajustar el tamaño del botón */
+  margin-top: 10px;
+}
+
+.generic-crud-button{
+  color: #000000;
+  font-size: 15px;
+  font-family: 'Oswald', sans-serif;
+  background-color: #36fff1;
+  border-radius: 10px; /* Cambia 10px al valor que prefieras */
+  border: none; /* Opcional, para eliminar cualquier borde predeterminado */
+  padding: 5px 15px; /* Opcional, para ajustar el tamaño del botón */
+  margin-top: 10px;
+  margin-left: auto;
+  margin-bottom: 10px;
+}
+
+.generic-button:hover {
+  background-color: #ffffff;
+}
+
+.generic-crud-button:hover {
+  background-color: #ffffff;
+}
+
+.modal-input {
+  width: 100%; /* Ajusta el ancho al contenedor */
+  padding: 10px; /* Espaciado interno */
+  margin: 8px 0; /* Espaciado entre los inputs */
+  border: 1px solid #ccc; /* Borde delgado */
+  border-radius: 5px; /* Esquinas redondeadas */
+  font-size: 16px; /* Tamaño de texto */
+  font-family: 'Oswald', sans-serif; /* Fuente consistente */
+  box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+.modal-input:focus {
+  border-color: #36fff1; /* Cambia el color del borde al enfocar */
+  outline: none; /* Quita el borde azul predeterminado */
+  box-shadow: 0 0 5px rgba(54, 255, 241, 0.5); /* Efecto de sombra */
+}
 
 .container {
   margin-top: 200px;
@@ -304,6 +363,43 @@ body, html {
   color: #000;
 }
 
+/* Ejemplo de CSS basado en tu diseño */
+
+.admin-layout {
+  display: flex;
+}
+
+.admin-table-container {
+  margin-left: 200px; /* Espacio para la sidebar */
+  width: calc(100% - 200px); /* Ajustar ancho para no cubrir la barra lateral */
+  padding: 20px;
+  background-color: #000;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+  
+.card {
+  background-color: #1e1e1e; /* Fondo oscuro para tarjetas */
+  color: #00ffcc; /* Color principal */
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.table {
+  background-color: #1e1e1e;
+  color: #fff;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid #333;
+  padding: 10px;
+}
+
 /* Personalización del widget de Dialogflow */
 df-messenger {
   --df-messenger-button-titlebar-color: #36fff1; /* Cambia el color de la barra del título a negro */
@@ -326,6 +422,59 @@ df-messenger .df-messenger-launcher {
   display: none !important;
 }*/
 
+/* Overlay animations */
+.fade-in {
+  animation: fadeIn 0.3s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Content animations */
+.slide-in {
+  animation: slideIn 0.3s forwards;
+}
+
+.slide-out {
+  animation: slideOut 0.3s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-30%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-30%);
+  }
+}
 
 /*CSS LOGIN Y REGISTER*/
 .auth-container {
