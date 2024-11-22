@@ -6,6 +6,8 @@
     "assert": "^2.1.0",
     "async_hooks": "^1.0.0",
     "backbone": "^1.6.0",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.3",
     "bootstrap": "^5.3.3",
     "browserify-zlib": "^0.2.0",
@@ -13,6 +15,8 @@
     "crypto-browserify": "^3.12.1",
     "express": "^4.21.1",
     "https-browserify": "^1.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
     "mysql2": "^3.11.4",
     "net": "^1.0.2",
     "os-browserify": "^0.3.0",
@@ -44,5 +48,6 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve --mode development"
-  }
+  },
+  "proxy": "http://localhost:3000"
 }

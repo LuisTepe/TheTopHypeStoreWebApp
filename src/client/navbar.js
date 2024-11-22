@@ -1,10 +1,15 @@
-// src/client/navbar.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import CartModal from './cartModal'; // Importamos el modal del carrito
+import CartModal from './cartModal';
+import UserModal from './userModal';
 
-const Navbar = () => {
+const Navbar = ({
+  isAuthenticated,
+  handleLogout,
+  setIsAuthenticated,
+}) => {
   const [isCartModalOpen, setCartModalOpen] = useState(false);
+  const [isUserModalOpen, setUserModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
@@ -12,6 +17,11 @@ const Navbar = () => {
     setCartModalOpen(!isCartModalOpen);
   };
 
+  const toggleUserModal = () => {
+    setUserModalOpen(!isUserModalOpen);
+  };
+
+  // Búsqueda en el catálogo
   const handleSearch = async (event) => {
     event.preventDefault();
     try {
@@ -51,10 +61,16 @@ const Navbar = () => {
             </div>
           </form>
           <span className="material-icons shopping-cart" onClick={toggleCartModal}>shopping_cart</span>
-          <span className="material-symbols-outlined account-icon">account_circle</span>
+          <span className="material-symbols-outlined account-icon" onClick={toggleUserModal}>account_circle</span>
         </div>
       </nav>
       <CartModal isOpen={isCartModalOpen} onClose={toggleCartModal} />
+      <UserModal
+        isOpen={isUserModalOpen}
+        onClose={toggleUserModal}
+        isAuthenticated={isAuthenticated}
+        handleLogout={handleLogout}
+      />
     </div>
   );
 };
