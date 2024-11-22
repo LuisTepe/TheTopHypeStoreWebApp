@@ -327,5 +327,67 @@ df-messenger .df-messenger-launcher {
 }*/
 
 
-/*CSS SEARCH ICON*/
+/*CSS LOGIN Y REGISTER*/
+.auth-container {
+  width: 100vw; /* Aseguramos que el contenedor cubra el ancho completo de la ventana */
+  padding: 0; /* Eliminamos cualquier padding adicional */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000; /* Color de fondo negro para toda la vista */
+  margin: 0; /* Eliminamos márgenes */
+  overflow: hidden; /* Evitamos barras de desplazamiento innecesarias */
+}
 
+.auth-box {
+  background-color: #202020;
+  padding: 40px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.auth-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #36fff1;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #36fff1;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-footer {
+  margin-top: 15px;
+}
+
+.auth-link {
+  color: #36fff1;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-error {
+  color: red;
+  margin-bottom: 15px;
+}
