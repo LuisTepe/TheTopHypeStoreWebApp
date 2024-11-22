@@ -16,6 +16,7 @@ import Register from './Register';
 import Login from './Login';
 import UsersTable from './Usuarios/usersTable';
 import Checkout from './checkout';
+import Dashboard from './dashboard';
 
 const App = () => {
   const [isCartModalOpen, setCartModalOpen] = useState(false);
@@ -68,6 +69,7 @@ const App = () => {
             <Route path="/productsTable" element={<ProductsTable />} />
             <Route path="/tallasTable" element={<TallasTable />} />
             <Route path="/Usuarios/usersTable" element={<UsersTable />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
         <ChatModal />

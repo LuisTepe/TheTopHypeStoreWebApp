@@ -42,4 +42,7 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+// Importar modelos aquí
+db.ventas = require('./ventas')(sequelize, Sequelize.DataTypes); // Pasando `sequelize` y `DataTypes`
+
 module.exports = db;

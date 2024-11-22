@@ -1,49 +1,50 @@
 const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
+
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('ventas', {
     id_venta: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
     },
     id_usuario: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
         model: 'usuarios',
-        key: 'id_usuario'
-      }
+        key: 'id_usuario',
+      },
     },
     total: {
-      type: DataTypes.DECIMAL(10,2),
-      allowNull: false
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false,
     },
     fecha_venta: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: Sequelize.Sequelize.fn('current_timestamp')
-    }
+      defaultValue: Sequelize.fn('NOW'), // Cambiado a Sequelize.fn('NOW') para ser más compatible
+    },
   }, {
     sequelize,
     tableName: 'ventas',
     timestamps: false,
     indexes: [
       {
-        name: "PRIMARY",
+        name: 'PRIMARY',
         unique: true,
-        using: "BTREE",
+        using: 'BTREE',
         fields: [
-          { name: "id_venta" },
-        ]
+          { name: 'id_venta' },
+        ],
       },
       {
-        name: "id_usuario",
-        using: "BTREE",
+        name: 'id_usuario',
+        using: 'BTREE',
         fields: [
-          { name: "id_usuario" },
-        ]
+          { name: 'id_usuario' },
+        ],
       },
-    ]
+    ],
   });
 };
